@@ -12,12 +12,12 @@ describe('User can search a video in YouTube', () => {
         assert(browser.isExisting('#search-form #container'));
     });
 
-    it('Should let the user search for a great song', () => {
+    it('Should let the user search for a great song and play it!', () => {
         browser.setValue('#search-input #search', 'Morphine All Wrong');
         browser.keys('Enter');
         browser.pause(3000);
-        browser.waitForVisible("//div[@id='contents']//ytd-video-renderer[1]//div[1]//div[1]//div[1]//div[1]//h3[1]//a[1]");
-        browser.click("//div[@id='contents']//ytd-video-renderer[1]//div[1]//div[1]//div[1]//div[1]//h3[1]//a[1]");
-        browser.pause(90000);
+        browser.waitForExist('[title="All Wrong - Morphine"]');
+        browser.click('[title="All Wrong - Morphine"]');
+        browser.pause(9000);
     });
 });
